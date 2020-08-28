@@ -1,8 +1,6 @@
 const axios = require('axios');
 const ShopifyPage = require('../pageobjects/shopify.page');
 const URLS = require('../data/urls'); 
-const { response } = require('express');
-const { func } = require('joi');
 const SHOPIFY_URL = URLS.heroUrls.qa.shopifyUrl;
 
 describe("Open plugin", function() {
