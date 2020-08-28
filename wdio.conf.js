@@ -6,6 +6,11 @@ exports.config = {
     //
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
+    
+    services: [
+        'intercept'
+    ],
+
     runner: 'local',
     //
     // ==================
@@ -17,7 +22,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './wdio/specs/**/*.js'
+        './wdio/specs/plugin.test.js'
     ],
     // Patterns to exclude.
     exclude: [
