@@ -35,13 +35,24 @@ class ShopifyPage {
         this.loginBtn.click();
     }
 
-    get customBtns(){
-        return $('#SiteNav li:nth-child(3) a'); 
+    get pluginBtn(){
+        return $("//*[@data-qa='launcher-message-iframe']"); 
     }
 
-    clickcustomBtns(){
-        this.customBtns.waitForDisplayed(); 
-        this.customBtns.click(); 
+
+    clickPluginBtn(){
+        this.pluginBtn.waitForDisplayed(); 
+        this.pluginBtn.switchToParentFrame();
+        this.pluginBtn.click(); 
+    }
+
+    get customBtn(){
+        return $('#SiteNav > li:nth-child(3) > a');
+    }
+
+    clickCustomBtn(){
+        this.customBtn.waitForDisplayed();
+        this.customBtn.click(); 
     }
 }
 

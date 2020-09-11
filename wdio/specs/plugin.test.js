@@ -4,31 +4,35 @@ const URLS = require('../data/urls');
 const SHOPIFY_URL = URLS.heroUrls.qa.shopifyUrl;
 
 describe("Open plugin", function() {
+    it("Login to the associate app", () => {
+        axios.post('https://api.qa.usehero.com/auth/login', {
+           email: "tunde@sayhero.com", 
+           password: "Abundance23!"
+        })
+           .then(function (response) {
+               console.log(response.data);
+           })
+           .catch(function (error){
+               console.log(error);
+        })
+    });
+
     it("Navigate to shopify url", () => {
         browser.url(SHOPIFY_URL);
-        //browser.setupInterceptor();
-    })
+    });
 
     it("Enter shopify page password and click to login", () => {
         ShopifyPage.clickEnterPasswordBtn();
         ShopifyPage.enterShopifyPassword("*QAtesting0nly-tryheronow!");
         ShopifyPage.clickLoginBtn();
-     })
+     });
 
-    it("Click on custom Buttons", () => {
-        ShopifyPage.clickcustomBtns();
-     })
+     it("Navigate to custom page", () => {
+        ShopifyPage.clickCustomBtn();
+     });
 
-     it("Login to the associate app", () => {
-         axios.post('https://api.qa.usehero.com/auth/login', {
-            email: "tunde@sayhero.com", 
-            password: "Abundance23!"
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error){
-                console.log(error);
-             })
-       })
- })
+     it("Open plugin", () => {
+        ShopifyPage.clickPluginBtn();
+        browser.pause(5000);
+     });
+ });
